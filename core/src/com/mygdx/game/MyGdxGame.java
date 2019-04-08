@@ -12,6 +12,7 @@ public class MyGdxGame extends Game {
 	SpriteBatch batch;
 	int altura,amplada;
 	TextureAtlas atlas;
+	Entrada entrada;
 
 
 	public SpriteBatch getBatch() {
@@ -37,18 +38,17 @@ public class MyGdxGame extends Game {
 		altura = Gdx.graphics.getHeight();
 		amplada=Gdx.graphics.getWidth();
 
+
 		Pantalla1 p1 = new Pantalla1(this);
-		Pantalla_S p2=new Pantalla_S(this);
-		Pantalla_A p3=new Pantalla_A(this);
-		setScreen(p3);
-
-
-
+		setScreen(p1);
+		entrada=new Entrada(this);
+		Gdx.input.setInputProcessor(entrada);
 
 	}
 
 	@Override
 	public void dispose () {
 		batch.dispose();
+		atlas.dispose();
 	}
 }

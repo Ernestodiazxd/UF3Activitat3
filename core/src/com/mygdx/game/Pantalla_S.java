@@ -1,7 +1,9 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -13,6 +15,8 @@ public class Pantalla_S extends ScreenBase{
     Sprite boss;
     TextureRegion region;
     TextureAtlas atlas;
+    BitmapFont font;
+
 
 
 
@@ -23,6 +27,8 @@ public class Pantalla_S extends ScreenBase{
         altura=joc.getAltura();
         amplada=joc.getAmplada();
         atlas=joc.getAtlas();
+        font=new BitmapFont();
+
 
     }
 
@@ -38,8 +44,10 @@ public class Pantalla_S extends ScreenBase{
 
     @Override
     public void render(float delta) {
+        font.setColor(Color.BLACK);
 
         batch.begin();
+        font.draw(batch,"Pantalla 1",(amplada/2)-100,(altura/2)+100);
         Gdx.gl.glClearColor(1f,1f,1f,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         boss.draw(batch);
@@ -69,7 +77,9 @@ public class Pantalla_S extends ScreenBase{
 
     @Override
     public void dispose() {
-
+        batch.dispose();
+        font.dispose();
+        atlas.dispose();
     }
 
 

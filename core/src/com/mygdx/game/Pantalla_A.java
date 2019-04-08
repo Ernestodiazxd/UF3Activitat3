@@ -99,6 +99,9 @@ public class Pantalla_A extends ScreenBase{
 
     @Override
     public void dispose() {
+        batch.dispose();
+        font.dispose();
+        atlas.dispose();
 
     }
 }

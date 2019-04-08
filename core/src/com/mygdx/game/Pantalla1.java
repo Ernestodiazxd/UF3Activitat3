@@ -70,6 +70,8 @@ public class Pantalla1 extends ScreenBase {
 
     @Override
     public void dispose() {
+        batch.dispose();
+        font.dispose();
 
     }
 }
